@@ -12,6 +12,7 @@ int		isnum(char *save);
 int		validate(int argc, char **argv);
 char	**ft_split(char const *s, char c);
 t_list	*lstnew(int content, t_list *pre);
+char	**mat(int argc, char **argv);
 
 typedef struct s_list
 {

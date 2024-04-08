@@ -6,12 +6,34 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 15:49:22 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/04 17:41:36 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:52:11 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
+int	buble(char **mat, char **argv)
+{
+	int	i;
+	int	j;
+
+	while (mat)
+	{
+		j = 0;
+		i = 0;
+		if (mat[i] == argv[j])
+		{
+			i = 0;
+			while (mat[++i] != argv[j])
+			{
+				if (mat[i] == argv[j])
+					return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+}
 int	isnum(char *save)
 {
 	int	i;
@@ -30,33 +52,17 @@ int	isnum(char *save)
 
 }
 
-int	validate(int argc, char **argv)
+int	validation(char **mat, char **argv)
 {
-	char	**save;
-	int		i;
+	int	i;
 
-	i = -1;
-	if (argc == 2)
-		{
-			save = ft_split(argv[1], ' ');
-			while (save[++i])
-			{
-				if (!isnum(save[i]))
-					{
-						free(save);
-						return (0);
-					}
-			}
-		}
-	if (argc > 2)
+	i = 0;
+	while (mat)
 	{
-		while (++i < argc)
-			{
-				if (!isnum(argv[i]) && i >= 1)
-						return (0);
-			}
+		isnum(mat[i]);
+		buble(**mat, argv);
+		i++;
 	}
-		return (1);
 }
 
 int	god(int argc, char **argv, t_stack s)
