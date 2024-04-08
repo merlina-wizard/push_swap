@@ -18,7 +18,7 @@ int	michael_buble(char **mat)
 	int	i;
 	int	j;
 
-		i = 0;
+	i = 0;
 	while (mat[i])
 	{
 		j = i + 1;

@@ -6,17 +6,17 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:03:41 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/08 17:41:04 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/08 21:40:59 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-long int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
-	long int	i;
-	int	result;
-	int	sign;
+	int			i;
+	long long	result;
+	int			sign;
 
 	i = 0;
 	result = 0;
