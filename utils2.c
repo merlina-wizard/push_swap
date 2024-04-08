@@ -6,15 +6,15 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:03:41 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/04 17:18:24 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:41:04 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	i;
+	long int	i;
 	int	result;
 	int	sign;
 
@@ -36,15 +36,24 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-t_list	*lstnew(int content, t_list *pre, t_list *nex)
-{
-	t_list	*new;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
+char	*ft_strdup(const char *src)
+{
+	int		i;
+	char	*dst;
+
+	i = 0;
+	while (src[i] != '\0')
+		i++;
+	dst = (char *)malloc(sizeof(char) * (i + 1));
+	if (!dst)
 		return (NULL);
-	new->prev = pre;
-	new->content = content;
-	new->next = nex;
-	return (new);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

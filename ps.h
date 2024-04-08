@@ -8,26 +8,24 @@
 # include <stdio.h>
 # include <limits.h>
 
-int		isnum(char *save);
-int		validate(int argc, char **argv);
-char	**ft_split(char const *s, char c);
-t_list	*lstnew(int content, t_list *pre);
+typedef struct s_node
+{
+	int				data;
+	struct s_node	*next;
+}				t_list;
+
 char	**mat(int argc, char **argv);
-
-typedef struct s_list
-{
-	int	content;
-	t_list	*next;
-	t_list	*prev;
-
-}	t_list;
-
-typedef struct s_stack
-{
-	t_stack		a;
-	t_stack		b;
-	t_list	*head;
-	int		size;
-}	t_stack;
+char	**ft_split(char const *s, char c);
+int		ft_atoi(const char *str);
+char	**mat(int argc, char **argv);
+int		validation(char **mat);
+int		isnum(char *save);
+int		michael_buble(char **mat);
+int		ft_close_matrix(char **matrix);
+char	*ft_strdup(const char *src);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstnew(int data);
 
 #endif

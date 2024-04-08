@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bho.c                                              :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 14:45:07 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/08 15:20:37 by mamerlin         ###   ########.fr       */
+/*   Created: 2024/04/08 16:47:41 by mamerlin          #+#    #+#             */
+/*   Updated: 2024/04/08 17:10:26 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-char	**mat(int argc, char **argv);
+int	ft_close_matrix(char **matrix)
 {
-	char	**mat;
-	int		i;
+	int	y;
 
-	i = 0;
-	mat = (char **)malloc((char *)sizeof * argc);
-	if (!mat)
-		retuirn (NULL);
-	mat[argc] = NULL;
-	while (mat != NULL)
+	y = 0;
+	while (matrix[y] != NULL)
 	{
-		mat[i] = argv[i];
-		i++;
+		free(matrix[y]);
+		y++;
 	}
-	return (mat);
+	free(matrix);
+	return (1);
 }
