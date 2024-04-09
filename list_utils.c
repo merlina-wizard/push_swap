@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils33.c                                          :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:45:10 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/08 22:38:33 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/09 13:15:02 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 	else
 	{
-		ft_lstlast(*lst)->prev = ft_lstlast(*lst)->next;
+		new->prev = ft_lstlast(*lst);
 		ft_lstlast(*lst)->next = new;
 	}
 }

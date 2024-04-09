@@ -15,6 +15,12 @@ typedef struct s_node
 	struct s_node	*prev;
 }				t_list;
 
+typedef struct s_stack
+{
+	t_list	*heada;
+	t_list	*headb;
+}				t_stack;
+
 char			**mat(int argc, char **argv);
 char			**ft_split(char const *s, char c);
 long long		ft_atoi(const char *str);
@@ -30,5 +36,7 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 t_list			*ft_lstnew(int data);
 int				stack_init(t_list **a, char **mat);
 int				create(t_list **list, char	*mat);
+int				sa(t_stack *a);
+int				sb(t_stack *a);
 
 #endif

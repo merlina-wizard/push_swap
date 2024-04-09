@@ -66,7 +66,7 @@ int	validation(char **mat)
 	}
 		if (!michael_buble(mat))
 			return (printf("ci sono duplicati\n"));
-	return (0);
+	return (1);
 }
 
 char	**mat(int argc, char **argv)
