@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/09 16:46:17 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/10 22:25:53 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void print_stack(t_list *stack)
 		printf("prev:[%p]", (stack->prev));
 		printf(" current:[%p]", (stack));
 		printf(" next[%p]", (stack->next));
-        printf("\t%d\n", (stack->data));
-        stack = stack->next;
+		printf("\t%d\n", (stack->data));
+		stack = stack->next;
 		if (stack == tmp)
 			break;
     }
@@ -52,7 +52,31 @@ int	main(int argc, char **argv)
 	stack_init(&heada, matrix);
 	stucks.heada = heada;
 	stucks.headb = headb;
+	/*sa(&stucks);
+	pb(&stucks);
+	pa(&stucks);
+	ra(&stucks);
+	print_stack(stucks.heada);
+	print_stack(stucks.headb);*/
+	print_stack(stucks.heada);
+	print_stack(stucks.headb);
+	ra(&stucks);
+	print_stack(stucks.heada);
+	print_stack(stucks.headb);
+	ra(&stucks);
+	print_stack(stucks.heada);
+	print_stack(stucks.headb);
 	sa(&stucks);
 	print_stack(stucks.heada);
+	print_stack(stucks.headb);
+	//pb(&stucks);
+	//print_stack(stucks.heada);
+	//print_stack(stucks.headb);
+	//ss(&stucks);
+	//print_stack(stucks.heada);
+	//print_stack(stucks.headb);
+	//rr(&stucks);
+	//print_stack(stucks.heada);
+	//print_stack(stucks.headb);
 	return (1);
 }

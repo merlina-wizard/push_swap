@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
+/*   Updated: 2024/04/10 22:10:36 by mamerlin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PS_H
 # define PS_H
 
@@ -36,7 +48,15 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 t_list			*ft_lstnew(int data);
 int				stack_init(t_list **a, char **mat);
 int				create(t_list **list, char	*mat);
-void				sa(t_stack *a);
-void				sb(t_stack *a);
+void			sa(t_stack *a);
+void			sb(t_stack *a);
+void			two(t_list *first, t_list *second, t_stack *a);
+void			pb(t_stack *a);
+void			pa(t_stack *a);
+void			pa_pb_two(t_list *first, t_stack *a);
+void			ra(t_stack *a);
+void			rb(t_stack *a);
+void			rr(t_stack *a);
+void			ss(t_stack *a);
 
 #endif
