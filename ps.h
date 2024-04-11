@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/10 22:10:36 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:15:50 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,13 @@
 # include <stdio.h>
 # include <limits.h>
 
-typedef struct s_node
-{
-	int				data;
-	struct s_node	*next;
-	struct s_node	*prev;
-}				t_list;
-
 typedef struct s_stack
 {
-	t_list	*heada;
-	t_list	*headb;
-}				t_stack;
+	long			nbr;
+	long			index;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
 
 char			**mat(int argc, char **argv);
 char			**ft_split(char const *s, char c);
@@ -42,21 +37,15 @@ int				isnum(char *save);
 int				michael_buble(char **mat);
 int				ft_close_matrix(char **matrix);
 char			*ft_strdup(const char *src);
-void			ft_lstadd_front(t_list **lst, t_list *new);
-t_list			*ft_lstlast(t_list *lst);
-void			ft_lstadd_back(t_list **lst, t_list *new);
-t_list			*ft_lstnew(int data);
-int				stack_init(t_list **a, char **mat);
-int				create(t_list **list, char	*mat);
-void			sa(t_stack *a);
-void			sb(t_stack *a);
-void			two(t_list *first, t_list *second, t_stack *a);
-void			pb(t_stack *a);
-void			pa(t_stack *a);
-void			pa_pb_two(t_list *first, t_stack *a);
-void			ra(t_stack *a);
-void			rb(t_stack *a);
-void			rr(t_stack *a);
-void			ss(t_stack *a);
+void			ft_lstadd_front(t_stack **lst, t_stack *new);
+t_stack			*ft_lstlast(t_stack *lst);
+void			ft_lstadd_back(t_stack **lst, t_stack *new);
+t_stack			*ft_lstnew(int data);
+int				stack_init(t_stack **a, char **mat);
+int				create(t_stack **list, char	*mat);
+void			ft_pa(t_stack **a, t_stack **b);
+void			ft_pb(t_stack **a, t_stack **b);
+void			ft_ra(t_stack **a);
+void			ft_sa(t_stack **a);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:45:10 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/09 13:15:02 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:37:16 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!new || !lst)
 		return ;
@@ -20,18 +20,23 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-t_list	*ft_lstlast(t_list *lst)
+t_stack	*ft_lstlast(t_stack *lst)
 {
+	printf("ciao3\n");
 	while (lst)
 	{
 		if (lst->next == 0)
+		{
+			printf("ciaos\n");
 			return (lst);
+		}
+		printf("ciaoq\n");
 		lst = lst->next;
 	}
 	return (lst);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
 	if (!lst)
 		return ;
@@ -44,14 +49,14 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
-t_list	*ft_lstnew(int data)
+t_stack	*ft_lstnew(int data)
 {
-	t_list	*list;
+	t_stack	*list;
 
-	list = (t_list *)malloc(sizeof(t_list));
+	list = (t_stack *)malloc(sizeof(t_stack));
 	if (list == NULL)
 		return (NULL);
-	list->data = data;
+	list->nbr = data;
 	list->next = 0;
 	list->prev = 0;
 	return (list);

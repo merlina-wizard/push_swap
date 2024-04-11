@@ -6,22 +6,22 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/10 22:25:53 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:15:33 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
-void print_stack(t_list *stack)
+void print_stack(t_stack *stack)
 {
-	t_list *tmp;
+	t_stack *tmp;
 
 	tmp = stack;
     printf("Stack:\n");
     while (stack){
-		printf("prev:[%p]", (stack->prev));
-		printf(" current:[%p]", (stack));
-		printf(" next[%p]", (stack->next));
-		printf("\t%d\n", (stack->data));
+		// printf("prev:[%p]", (stack->prev));
+		// printf(" current:[%p]", (stack));
+		// printf(" next[%p]", (stack->next));
+		printf("\t%ld\n", (stack->nbr));
 		stack = stack->next;
 		if (stack == tmp)
 			break;
@@ -31,12 +31,11 @@ void print_stack(t_list *stack)
 int	main(int argc, char **argv)
 {
 	char	**matrix;
-	t_list	*heada;
-	t_list	*headb;
-	t_stack	stucks;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	heada = NULL;
-	headb = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	matrix = NULL;
 	if (argc < 2 || (argc == 2 && !argv[1][0]))
 		return (0);
@@ -49,34 +48,11 @@ int	main(int argc, char **argv)
 		ft_close_matrix(matrix);
 		return (1);
 	}
-	stack_init(&heada, matrix);
-	stucks.heada = heada;
-	stucks.headb = headb;
-	/*sa(&stucks);
-	pb(&stucks);
-	pa(&stucks);
-	ra(&stucks);
-	print_stack(stucks.heada);
-	print_stack(stucks.headb);*/
-	print_stack(stucks.heada);
-	print_stack(stucks.headb);
-	ra(&stucks);
-	print_stack(stucks.heada);
-	print_stack(stucks.headb);
-	ra(&stucks);
-	print_stack(stucks.heada);
-	print_stack(stucks.headb);
-	sa(&stucks);
-	print_stack(stucks.heada);
-	print_stack(stucks.headb);
-	//pb(&stucks);
-	//print_stack(stucks.heada);
-	//print_stack(stucks.headb);
-	//ss(&stucks);
-	//print_stack(stucks.heada);
-	//print_stack(stucks.headb);
-	//rr(&stucks);
-	//print_stack(stucks.heada);
-	//print_stack(stucks.headb);
+	stack_init(&stack_a, matrix);
+	print_stack(stack_a);
+	print_stack(stack_b);
+	ft_sa(&stack_a);
+	print_stack(stack_a);
+	print_stack(stack_b);
 	return (1);
 }

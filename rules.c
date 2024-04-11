@@ -6,185 +6,89 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:48:19 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/10 22:11:04 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:24:40 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	sa(t_stack *a)
+void	ft_pa(t_stack **a, t_stack **b)
 {
-	t_list	*first;
-	t_list	*second;
-	t_list	*third;
-	t_list	*last;
+	t_stack	*tmp;
 
-	if (!(a->heada) || !a->heada->next)
+	if (!*b)
 		return ;
-	first = a->heada;
-	second = first->next;
-	third = second->next;
-	last = first->prev;
-	if (third == first)
-		two(first, second, a);
-	else
-	{
-		a->heada = second;
-		last->next = second;
-		second->prev = last;
-		second->next = first;
-		first->prev = second;
-		first->next = third;
-		third->prev = first;
-	}
+	tmp = *a;
+	*a = *b;
+	*b = (*b)->next;
+	(*a)->next = tmp;
 }
 
-void	two(t_list *first, t_list *second, t_stack *a)
+void	ft_pb(t_stack **a, t_stack **b)
 {
-	second->next = first;
-	a->heada = second;
-	second->prev = first;
-	first->prev = second;
-	first->next = second;
-}
+	t_stack	*tmp;
 
-void	sb(t_stack *a)
-{
-	t_list	*first;
-	t_list	*second;
-	t_list	*third;
-	t_list	*last;
-
-	if (!(a->headb) || !a->headb->next)
+	if (!*a)
 		return ;
-	first = a->headb;
-	second = first->next;
-	third = second->next;
-	last = first->prev;
-	if (third == first)
-		two(first, second, a);
-	else
-	{
-		a->headb = second;
-		last->next = second;
-		second->prev = last;
-		second->next = first;
-		first->prev = second;
-		first->next = third;
-		third->prev = first;
-	}
+	tmp = *b;
+	*b = *a;
+	*a = (*a)->next;
+	(*b)->next = tmp;
+}
+void	ft_ra(t_stack **a)
+{
+	t_stack	*tmp;
+
+	tmp = *a;
+	*a = ft_lstlast(*a);
+	(*a)->next = tmp;
+	*a = tmp->next;
+	tmp->next = NULL;
 }
 
-void	ss(t_stack *a)
+void	ft_rb(t_stack **b)
 {
-	sa(a);
-	sb(a);
+	t_stack	*tmp;
+
+	tmp = *b;
+	*b = ft_lstlast(*b);
+	(*b)->next = tmp;
+	*b = tmp->next;
+	tmp->next = NULL;
 }
 
-void	pb(t_stack *a)
+void	ft_rr(t_stack **a, t_stack **b)
 {
-	t_list	*first;
-	t_list	*last;
+	ft_ra(a);
+	ft_rb(b);
+}
 
-	if (!a->heada)
+void	ft_sa(t_stack **a)
+{
+	t_stack	*tmp;
+
+	if (!*a || !((*a)->next))
 		return ;
-	first = a->heada;
-	last = first->prev;
-	if (first == last)
-		a->heada = NULL;
-	else
-	{
-		a->heada = first->next;
-		last->next = first->next;
-		first->next->prev = last;
-	}
-	if (!a->headb)
-	{
-		a->headb = first;
-		first->next = first;
-		first->prev = first;
-	}
-	else
-		pa_pb_two(first, a);
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = (*a)->next;
+	(*a)->next = tmp;
 }
 
-void	pa(t_stack *a)
+void	ft_sb(t_stack **b)
 {
-	t_list	*first;
-	t_list	*last;
+	t_stack	*tmp;
 
-	if (!a->headb)
+	if (!*b || !((*b)->next))
 		return ;
-	first = a->headb;
-	last = first->prev;
-	if (first == last)
-		a->headb = NULL;
-	else
-	{
-		a->headb = first->next;
-		last->next = first->next;
-		first->next->prev = last;
-	}
-	if (!a->heada)
-	{
-		a->heada = first;
-		first->next = first;
-		first->prev = first;
-	}
-	else
-		pa_pb_two(first, a);
-}
-void	pa_pb_two(t_list *first, t_stack *a)
-{
-	first->next = a->heada;
-	first->prev = a->heada->prev;
-	a->heada->prev->next = first;
-	a->heada->prev = first;
-	a->heada = first;
+	tmp = *b;
+	*b = (*b)->next;
+	tmp->next = (*b)->next;
+	(*b)->next = tmp;
 }
 
-void	ra(t_stack *a)
+void	ft_ss(t_stack **a,t_stack **b)
 {
-	t_list	*first;
-	t_list	*last;
-	t_list	*x;
-	t_list	*y;
-
-	if (!a || !a->heada->next)
-		return ;
-	first = a->heada;
-	last = a->heada->prev;
-	x = first->next;
-	y = last->prev;
-	last->prev = y;
-	last->next = first;
-	first->prev = last;
-	first->next = x;
-	a->heada = last;
-}
-
-void	rb(t_stack *a)
-{
-	t_list	*first;
-	t_list	*last;
-	t_list	*x;
-	t_list	*y;
-
-	if (!a || !a->headb->next)
-		return ;
-	first = a->headb;
-	last = a->headb->prev;
-	x = first->next;
-	y = last->prev;
-	last->prev = y;
-	last->next = first;
-	first->prev = last;
-	first->next = x;
-	a->headb = last;
-}
-
-void	rr(t_stack *a)
-{
-	ra(a);
-	rb(a);
+	ft_sa(a);
+	ft_sb(b);
 }
