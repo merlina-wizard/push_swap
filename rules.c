@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:48:19 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/11 17:24:40 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/12 18:02:23 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,38 @@ void	ft_ss(t_stack **a,t_stack **b)
 {
 	ft_sa(a);
 	ft_sb(b);
+}
+
+void	ft_rra(t_stack **a)
+{
+	t_stack	*tmp;
+	t_stack	*pre;
+
+	pre = (*a);
+	while (pre->next->next)
+		pre = pre->next;
+	tmp = (*a);
+	(*a) = ft_lstlast(*a);
+	(*a)->next = tmp;
+	pre->next = NULL;
+}
+
+void	ft_rrb(t_stack **b)
+{
+	t_stack	*tmp;
+	t_stack	*pre;
+
+	pre = (*b);
+	while (pre->next->next)
+		pre = pre->next;
+	tmp = (*b);
+	(*b) = ft_lstlast(*b);
+	(*b)->next = tmp;
+	pre->next = NULL;
+}
+
+void	ft_rrr(t_stack **a, t_stack **b)
+{
+	ft_rra(a);
+	ft_rrb(b);
 }

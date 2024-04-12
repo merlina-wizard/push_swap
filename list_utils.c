@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:45:10 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/11 15:37:16 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/12 17:45:05 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,12 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
-	printf("ciao3\n");
 	while (lst)
 	{
 		if (lst->next == 0)
 		{
-			printf("ciaos\n");
 			return (lst);
 		}
-		printf("ciaoq\n");
 		lst = lst->next;
 	}
 	return (lst);

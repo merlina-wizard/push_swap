@@ -6,16 +6,13 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/11 17:15:33 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/12 18:03:47 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 void print_stack(t_stack *stack)
 {
-	t_stack *tmp;
-
-	tmp = stack;
     printf("Stack:\n");
     while (stack){
 		// printf("prev:[%p]", (stack->prev));
@@ -23,8 +20,6 @@ void print_stack(t_stack *stack)
 		// printf(" next[%p]", (stack->next));
 		printf("\t%ld\n", (stack->nbr));
 		stack = stack->next;
-		if (stack == tmp)
-			break;
     }
 }
 
@@ -51,7 +46,25 @@ int	main(int argc, char **argv)
 	stack_init(&stack_a, matrix);
 	print_stack(stack_a);
 	print_stack(stack_b);
+	ft_pb(&stack_a, (&stack_b));
+	ft_pb(&stack_a, &stack_b);
+	ft_pb(&stack_a, &stack_b);
+	ft_pb(&stack_a, &stack_b);
+	ft_pb(&stack_a, &stack_b);
 	ft_sa(&stack_a);
+	ft_sb(&stack_b);
+	ft_ss(&stack_a, &stack_b);
+	ft_ra(&stack_a);
+	ft_ra(&stack_a);
+	ft_rb(&stack_b);
+	ft_rb(&stack_b);
+	ft_rr(&stack_a, (&stack_b));
+	ft_rra(&stack_a);
+	ft_rra(&stack_a);
+	ft_rrb((&stack_b));
+	ft_rrb((&stack_b));
+	ft_rrr(&stack_a, (&stack_b));
+	ft_rrr(&stack_a, (&stack_b));
 	print_stack(stack_a);
 	print_stack(stack_b);
 	return (1);
