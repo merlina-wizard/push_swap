@@ -6,11 +6,12 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/12 18:03:47 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/17 10:32:17 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
+
 void print_stack(t_stack *stack)
 {
     printf("Stack:\n");
@@ -18,7 +19,7 @@ void print_stack(t_stack *stack)
 		// printf("prev:[%p]", (stack->prev));
 		// printf(" current:[%p]", (stack));
 		// printf(" next[%p]", (stack->next));
-		printf("\t%ld\n", (stack->nbr));
+		printf("\t%ld\n and \t%ld\n", (stack->nbr), (stack->index));
 		stack = stack->next;
     }
 }
@@ -46,25 +47,9 @@ int	main(int argc, char **argv)
 	stack_init(&stack_a, matrix);
 	print_stack(stack_a);
 	print_stack(stack_b);
-	ft_pb(&stack_a, (&stack_b));
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_sa(&stack_a);
-	ft_sb(&stack_b);
-	ft_ss(&stack_a, &stack_b);
-	ft_ra(&stack_a);
-	ft_ra(&stack_a);
-	ft_rb(&stack_b);
-	ft_rb(&stack_b);
-	ft_rr(&stack_a, (&stack_b));
-	ft_rra(&stack_a);
-	ft_rra(&stack_a);
-	ft_rrb((&stack_b));
-	ft_rrb((&stack_b));
-	ft_rrr(&stack_a, (&stack_b));
-	ft_rrr(&stack_a, (&stack_b));
+	ft_index(stack_a);
+	print_stack(stack_a);
+	fake_ra(stack_a);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	return (1);

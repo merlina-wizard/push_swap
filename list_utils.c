@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:45:10 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/12 17:45:05 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/17 10:10:51 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,21 @@ t_stack	*ft_lstnew(int data)
 	list->nbr = data;
 	list->next = 0;
 	list->prev = 0;
+	list->index = 0;
 	return (list);
+}
+
+int	ft_lstsize(t_stack *lst)
+{
+	int	i;
+
+	if (!lst)
+		return (0);
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:48:19 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/12 18:02:23 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/17 09:40:58 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_pb(t_stack **a, t_stack **b)
 	*a = (*a)->next;
 	(*b)->next = tmp;
 }
+
 void	ft_ra(t_stack **a)
 {
 	t_stack	*tmp;
