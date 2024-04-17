@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/17 13:16:16 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:37:18 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,12 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	stack_init(&stack_a, matrix);
-	sort_three(stack_a);
+	ft_index(stack_a);
+	ft_ra(&stack_a);
+	ft_rra(&stack_a);
+	ft_sa(&stack_a);
+	fake_ra(&stack_a);
+	fake_rra()
 	print_stack(stack_a);
 	return (1);
 }

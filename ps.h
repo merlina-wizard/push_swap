@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/17 11:54:09 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:38:09 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void			ft_rrr(t_stack **a, t_stack **b);
 void			fake_ra(t_stack *a);
 void			ft_index(t_stack *stack);
 int				ft_lstsize(t_stack *lst);
-void			solve(t_stack *a, t_stack *b);
+void			solve(t_stack **a, t_stack **b);
 int				check_if_sorted(t_stack *stack);
-void			sort_three(t_stack *a);
+void			sort_three(t_stack **a);
 void			print_stack(t_stack *stack);
 #endif

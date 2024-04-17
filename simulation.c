@@ -6,12 +6,41 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:52:35 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/17 11:50:45 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:38:28 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
+void	fake_rrr(t_stack *a, t_stack *b)
+{
+	fake_rra(a);
+	fake_rrb(b);
+}
+
+void	fake_rra(t_stack *a)
+{
+	while (a)
+	{
+		if (a->index == (long)ft_lstsize(a))
+			a->index = 1;
+		else
+			a->index = a->index + 1;
+		a = a->next;
+	}
+}
+
+void	fake_rrb(t_stack *b)
+{
+	while (b)
+	{
+		if (b->index == (long)ft_lstsize(b))
+			b->index = 1;
+		else
+			b->index = b->index + 1;
+		b = b->next;
+	}
+}
 
 void	fake_rb(t_stack *b)
 {
