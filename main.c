@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/17 10:32:17 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/17 11:38:24 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int	main(int argc, char **argv)
 	print_stack(stack_a);
 	print_stack(stack_b);
 	ft_index(stack_a);
-	print_stack(stack_a);
-	fake_ra(stack_a);
+	chec
 	print_stack(stack_a);
 	print_stack(stack_b);
 	return (1);
