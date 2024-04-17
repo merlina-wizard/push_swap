@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/17 19:31:07 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:34:26 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	solve(t_stack **a, t_stack **b)
 			ft_pb(a, b);
 			ft_pb(a, b);
 		}
-		calculate_cost(a);
+		target_a(&a, &b);
 	}
 	if (ft_lstsize(*a) <= 3)
 		mini_sort(a);
@@ -54,6 +54,11 @@ t_stack	*target_a(t_stack *a, t_stack *b)
 		}
 	}
 	return (ret);
+}
+
+int	find_cost(t_stack *b, t_stack *target)
+{
+	
 }
 
 void	sort_three(t_stack **a)
