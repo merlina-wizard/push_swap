@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/17 14:38:09 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:14:22 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,8 @@ void			solve(t_stack **a, t_stack **b);
 int				check_if_sorted(t_stack *stack);
 void			sort_three(t_stack **a);
 void			print_stack(t_stack *stack);
+void			mini_sort(t_stack **a);
+t_stack			*target_a(t_stack *a, t_stack *b);
+t_stack			*find_target(t_stack *stacks, int target);
+
 #endif

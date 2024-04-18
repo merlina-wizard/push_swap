@@ -41,11 +41,11 @@ int	isnum(char *save)
 	while (save[i] == 32)
 		i++;
 	if (save[i] == '+' || save[i] == '-')
-		{
-			if (save[i + 1] == '\0')
-				return (0);
-			i++;
-		}
+	{
+		if (save[i + 1] == '\0')
+			return (0);
+		i++;
+	}
 	while (save[i] >= '0' && save[i] <= '9')
 		i++;
 	if (save[i] == '\0')
@@ -64,8 +64,8 @@ int	validation(char **mat)
 			return (printf("non ci sono solo numeri\n"));
 		i++;
 	}
-		if (!michael_buble(mat))
-			return (printf("ci sono duplicati\n"));
+	if (!michael_buble(mat))
+		return (printf("ci sono duplicati\n"));
 	return (1);
 }
 

@@ -6,17 +6,11 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:52:35 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/17 18:38:28 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:03:06 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
-
-void	fake_rrr(t_stack *a, t_stack *b)
-{
-	fake_rra(a);
-	fake_rrb(b);
-}
 
 void	fake_rra(t_stack *a)
 {
@@ -64,6 +58,12 @@ void	fake_ra(t_stack *a)
 			a->index = a->index - 1;
 		a = a->next;
 	}
+}
+
+void	fake_rrr(t_stack *a, t_stack *b)
+{
+	fake_rra(a);
+	fake_rrb(b);
 }
 
 void	ft_index(t_stack *stack)
