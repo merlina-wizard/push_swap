@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/19 13:59:30 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:32:42 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	solve(t_stack **a, t_stack **b)
 		}
 		targeta = target_a(*a, *b);
 		targetb = find_target(b, targeta->nbr);
-		ft_solver(a, targeta, b, targetb);
+		ft_move(a, targeta, b, targetb);
 	}
 	if (ft_lstsize(*a) <= 3)
 		mini_sort(a);
@@ -80,9 +80,15 @@ int	ft_fakemove(t_stack *a, t_stack *target_a, t_stack *b, t_stack *target_b)
 		while (target_a->index != 1 || target_b->index != 1)
 			i += fake_rrr(a, b);
 		if (target_a->index == 1)
-			i += fake_rrb(b);
+		{
+			while (target_b->index != 1)
+				i += fake_rrb(b);
+		}
 		else
-			i += fake_rra(a);
+		{
+			while (target_a->index != 1)
+				i += fake_rra(a);
+		}
 	}
 	if (ft_case(target_a, target_b, ft_lstlast(a)->index,
 			ft_lstlast(b)->index == 2))
@@ -90,9 +96,15 @@ int	ft_fakemove(t_stack *a, t_stack *target_a, t_stack *b, t_stack *target_b)
 		while (target_a->index != 1 || target_b->index != 1)
 			i += fake_rr(a, b);
 		if (target_a->index == 1)
-			i += fake_rb(b);
+		{
+			while (target_b->index != 1)
+				i += fake_rb(b);
+		}
 		else
-			i += fake_ra(a);
+		{
+			while (target_a->index != 1)
+				i += fake_ra(a);
+		}
 	}
 	if ((ft_case(target_a, target_b, ft_lstlast(a)->index,
 			ft_lstlast(b)->index == 3)))
@@ -112,9 +124,15 @@ int	ft_fakemove2(t_stack *a, t_stack *target_a, t_stack *b, t_stack *target_b, i
 			i += fake_ra(a);
 		}
 		if (target_a->index == 1)
-			i += fake_rrb(b);
+		{
+			while (target_b->index != 1)
+				i += fake_rrb(b);
+		}
 		else
-			i += fake_ra(a);
+		{
+			while (target_a->index != 1)
+				i += fake_ra(a);
+		}
 	}
 	else
 	{
@@ -125,9 +143,15 @@ int	ft_fakemove2(t_stack *a, t_stack *target_a, t_stack *b, t_stack *target_b, i
 			i += fake_rb(a);
 		}
 		if (target_a->index == 1)
-			i += fake_rra(b);
+		{
+			while (target_b->index != 1)
+				i += fake_rra(b);
+		}
 		else
-			fake_rb(a);
+		{
+			while (target_b->index != 1)
+				i += fake_rb(a);
+		}
 	}
 	return (i);
 }
