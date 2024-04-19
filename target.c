@@ -1,26 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solve2.c                                           :+:      :+:    :+:   */
+/*   target.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:05:00 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/18 17:06:36 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/19 21:19:46 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-t_stack	*find_target(t_stack *stacks, int target)
-{
-	t_stack	*ret;
-
-	ret = small_target(stacks, target);
-	if (ret == NULL)
-		ret = big_target(stacks, target);
-	return (ret);
-}
 
 t_stack	*small_target(t_stack *stacks, int target)
 {
@@ -43,7 +34,7 @@ t_stack	*small_target(t_stack *stacks, int target)
 	return (ret);
 }
 
-static	t_stack	*big_target(t_stack *stacks, int target)
+static	t_stack	*big_target(t_stack *stacks)
 {
 	t_stack	*ret;
 	int		compare;
@@ -61,5 +52,15 @@ static	t_stack	*big_target(t_stack *stacks, int target)
 		}
 		iter = iter->next;
 	}
+	return (ret);
+}
+
+t_stack	*find_target(t_stack *stacks, int target)
+{
+	t_stack	*ret;
+
+	ret = small_target(stacks, target);
+	if (ret == NULL)
+		ret = big_target(stacks);
 	return (ret);
 }

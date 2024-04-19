@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:52:35 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/19 12:47:55 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/19 22:37:05 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 int	fake_rra(t_stack *a)
 {
+	int	i;
+
+	i = (long)ft_lstsize(a);
 	while (a)
 	{
-		if (a->index == (long)ft_lstsize(a))
+		if (a->index == i)
 			a->index = 1;
 		else
 			a->index = a->index + 1;
@@ -27,9 +30,12 @@ int	fake_rra(t_stack *a)
 
 int	fake_rrb(t_stack *b)
 {
+	int	i;
+
+	i = (long)ft_lstsize(b);
 	while (b)
 	{
-		if (b->index == (long)ft_lstsize(b))
+		if (b->index == i)
 			b->index = 1;
 		else
 			b->index = b->index + 1;
@@ -40,10 +46,13 @@ int	fake_rrb(t_stack *b)
 
 int	fake_rb(t_stack *b)
 {
+	int	i;
+
+	i = (long)ft_lstsize(b);
 	while (b)
 	{
 		if (b->index == 1)
-			b->index = (long)ft_lstsize(b);
+			b->index = i;
 		else
 			b->index = b->index - 1;
 		b = b->next;
@@ -53,10 +62,13 @@ int	fake_rb(t_stack *b)
 
 int	fake_ra(t_stack *a)
 {
+	long	i;
+
+	i = (long)ft_lstsize(a);
 	while (a)
 	{
 		if (a->index == 1)
-			a->index = (long)ft_lstsize(a);
+			a->index = i;
 		else
 			a->index = a->index - 1;
 		a = a->next;

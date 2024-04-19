@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/19 13:18:45 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/19 22:41:19 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 typedef struct s_stack
 {
+	int				cases;
 	long			nbr;
 	long			index;
 	struct s_stack	*next;
@@ -69,5 +70,15 @@ void			print_stack(t_stack *stack);
 void			mini_sort(t_stack **a);
 t_stack			*target_a(t_stack *a, t_stack *b);
 t_stack			*find_target(t_stack *stacks, int target);
+int				find_cost(t_stack *a, t_stack *target_a, t_stack *b,
+					t_stack *target_b);
+int				ft_fakemove(t_stack *a, t_stack *target_a, t_stack *b,
+					t_stack *target_b);
+int				ft_fakemove2(t_stack *a, t_stack *target_a, t_stack *b,
+					t_stack *target_b, int i);
+int				ft_case(t_stack *target_a, t_stack *target_b,
+					long max_a, long max_b);
+void			ft_move(t_stack *a, t_stack *target_a,
+					t_stack *b, t_stack *target_b);
 
 #endif
