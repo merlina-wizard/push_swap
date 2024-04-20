@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/19 22:53:07 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/20 18:21:17 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ int	main(int argc, char **argv)
 	stack_init(&stack_a, matrix);
 	print_stack(stack_a);
 	print_stack(stack_b);
-	solve(&stack_a, &stack_a);
-	printf("ahhh");
+	solve(&stack_a, &stack_b);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	(void)stack_b;

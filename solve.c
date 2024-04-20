@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/19 22:52:11 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/20 19:15:51 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	solve(t_stack **a, t_stack **b)
 		mini_sort(a);
 	while (ft_lstsize(*a) > 3)
 	{
-		if (b == NULL)
+		if (ft_lstsize(*b) <= 0)
 		{
 			ft_pb(a, b);
 			ft_pb(a, b);
@@ -31,10 +31,9 @@ void	solve(t_stack **a, t_stack **b)
 		targeta = target_a(*a, *b);
 		targetb = find_target(*b, targeta->nbr);
 		ft_move(*a, targeta, *b, targetb);
-		printf("post move\n");
 	}
-	// while (b)
-	// 	ft_pa(a, b);
+	//while ()
+	//	ft_pa(a, b);
 	if (check_if_sorted(*a))
 		return ;
 }
@@ -48,28 +47,26 @@ t_stack	*target_a(t_stack *a, t_stack *b)
 
 	head_a = a;
 	tmp_cost = INT_MAX;
-	while (a != ft_lstlast(a))
+	while (ft_lstlast(a)->nbr != a->nbr)
 	{
-		target = find_target(b, a->nbr);
+		target = find_target(b, a->nbr);;
 		if (find_cost(head_a, a, b, target) < tmp_cost)
 		{
 			tmp_cost = find_cost(head_a, a, b, target);
+			a->cases = find_cost(head_a, a, b, target);
 			ret_a = a;
 		}
 		a = a->next;
 	}
+	printf("cost finale = %i\n", tmp_cost);
 	return (ret_a);
 }
 
 int	find_cost(t_stack *a, t_stack *target_a, t_stack *b, t_stack *target_b)
 {
-	int	i;
-
-
 	ft_index(a);
 	ft_index(b);
-	i = ft_fakemove(a, target_a, b, target_b);
-	return (i);
+	return (ft_fakemove(a, target_a, b, target_b));
 }
 
 int	ft_fakemove(t_stack *a, t_stack *target_a, t_stack *b, t_stack *target_b)
@@ -77,12 +74,13 @@ int	ft_fakemove(t_stack *a, t_stack *target_a, t_stack *b, t_stack *target_b)
 	int	i;
 
 	i = 0;
-	a->cases = ft_case(target_a, target_b, ft_lstlast(a)->index,
-			ft_lstlast(b)->index);
+	printf("cases = %i\n", ft_case(target_a, target_b, ft_lstlast(a)->index,
+			ft_lstlast(b)->index) == 1);
 	if (ft_case(target_a, target_b, ft_lstlast(a)->index,
 			ft_lstlast(b)->index) == 1)
 	{
-		while (target_a->index != 1 && target_b->index != 1) //non ho capito perche && e non ||
+		print_stack(a);
+		while (target_a->index != 1 && target_b->index != 1)
 		{
 			i += fake_rrr(a, b);
 		}
@@ -96,6 +94,7 @@ int	ft_fakemove(t_stack *a, t_stack *target_a, t_stack *b, t_stack *target_b)
 			while (target_a->index != 1)
 				i += fake_rra(a);
 		}
+		printf("i = %i", i);
 	}
 	if (ft_case(target_a, target_b, ft_lstlast(a)->index,
 			ft_lstlast(b)->index) == 2)
