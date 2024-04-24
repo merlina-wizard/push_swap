@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/25 00:16:35 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/25 00:54:36 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,43 +45,45 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	stack_init(&stack_a, matrix);
-
 	solve(&stack_a, &stack_b);
-	//final_rotate(&stack_a);
+	final_rotate(stack_a);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	(void)stack_b;
 	return (1);
 }
 
-long	find_lowest(t_stack *a)
+long	find_lowest(t_stack *list)
 {
-	int		i;
-	long	lowest;
+	t_stack	*tmp;
+	int		ret;
 
-	i = 0;
-	lowest = INT_MAX;
-	while (i < ft_lstsize(a))
+	tmp = list;
+	ret = tmp->nbr;
+	while (tmp)
 	{
-		printf("%li\n", a->nbr);
-		if ((a)->nbr < lowest)
-			lowest = a->nbr;
-		a = a->next;
-		i++;
+		if (ret > tmp->nbr)
+			ret = tmp->nbr;
+		tmp = tmp->next;
 	}
-	return (lowest);
+	return (ret);
 }
-void	final_rotate(t_stack **a)
+void	final_rotate(t_stack *a)
 {
 	long	low;
+	t_stack	*tmp;
 
-	low = find_lowest(*a);
-	while ((*a)->nbr != low)
+	tmp = a;
+	low = find_lowest(a);
+	while (tmp)
 	{
-		if ((*a)->index <= (ft_lstsize(*a) / 2))
-			ft_ra(a);
+		if (tmp->nbr == low)
+			return ;
+		if ((a)->index <= ft_lstsize(a) / 2)
+			ft_ra(&a);
 		else
-			ft_rra(a);
+			ft_rra(&a);
+		tmp = a;
 	}
 	return ;
 }

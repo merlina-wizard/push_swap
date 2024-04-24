@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:09:09 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/18 17:11:37 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/25 00:49:27 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,14 @@ void	sort_three(t_stack **a)
 	}
 	return ;
 }
+
+// void	solve_five(t_stack *stacks)
+// {
+// 	push_high(stacks);
+// 	if (stacks->next && stacks->nbr < stacks->next->nbr)
+// 		ft_sb(stacks);
+// 	solve_three(stacks);
+// 	ft_pa(stacks);
+// 	ft_pa(stacks);
+// 	print_both(*stacks);
+// }
