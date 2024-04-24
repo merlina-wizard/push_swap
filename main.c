@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/20 18:21:17 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/25 00:16:35 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,43 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	stack_init(&stack_a, matrix);
-	print_stack(stack_a);
-	print_stack(stack_b);
+
 	solve(&stack_a, &stack_b);
+	//final_rotate(&stack_a);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	(void)stack_b;
 	return (1);
+}
+
+long	find_lowest(t_stack *a)
+{
+	int		i;
+	long	lowest;
+
+	i = 0;
+	lowest = INT_MAX;
+	while (i < ft_lstsize(a))
+	{
+		printf("%li\n", a->nbr);
+		if ((a)->nbr < lowest)
+			lowest = a->nbr;
+		a = a->next;
+		i++;
+	}
+	return (lowest);
+}
+void	final_rotate(t_stack **a)
+{
+	long	low;
+
+	low = find_lowest(*a);
+	while ((*a)->nbr != low)
+	{
+		if ((*a)->index <= (ft_lstsize(*a) / 2))
+			ft_ra(a);
+		else
+			ft_rra(a);
+	}
+	return ;
 }

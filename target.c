@@ -6,12 +6,11 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:05:00 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/20 18:35:31 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/24 22:59:31 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
-
 
 t_stack	*small_target(t_stack *stacks, int target)
 {

@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/22 21:48:45 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/25 00:15:25 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack
 	long			index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	struct s_stack	*head;
 }	t_stack;
 
 char			**mat(int argc, char **argv);
@@ -55,13 +56,7 @@ void			ft_ss(t_stack **a, t_stack **b);
 void			ft_rra(t_stack **a);
 void			ft_rrb(t_stack **b);
 void			ft_rrr(t_stack **a, t_stack **b);
-int				fake_ra(t_stack **a);
-int				fake_rra(t_stack **a);
-int				fake_rrb(t_stack **b);
-int				fake_rb(t_stack **b);
-int				fake_rrr(t_stack **a, t_stack **b);
-int				fake_rr(t_stack **a, t_stack **b);
-void			ft_index(t_stack **stack);
+void			ft_index(t_stack *stack);
 int				ft_lstsize(t_stack *lst);
 void			solve(t_stack **a, t_stack **b);
 int				check_if_sorted(t_stack *stack);
@@ -70,15 +65,11 @@ void			print_stack(t_stack *stack);
 void			mini_sort(t_stack **a);
 t_stack			*target_a(t_stack *a, t_stack *b);
 t_stack			*find_target(t_stack *stacks, int target);
-int				find_cost(t_stack **a, t_stack *target_a, t_stack **b,
-					t_stack *target_b);
-int				ft_fakemove(t_stack **a, t_stack *target_a, t_stack **b,
-					t_stack *target_b);
-int				ft_fakemove2(t_stack **a, t_stack *target_a, t_stack **b,
-					t_stack *target_b, int i);
+int				find_cost(t_stack *a, int index_a, int index_b, t_stack *b);
 int				ft_case(t_stack *target_a, t_stack *target_b,
 					long max_a, long max_b);
 void			ft_move(t_stack **a, t_stack *target_a,
 					t_stack **b, t_stack *target_b);
+void			final_rotate(t_stack **a);
 
 #endif
