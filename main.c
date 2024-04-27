@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/25 18:41:36 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:27:34 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,8 @@ int	main(int argc, char **argv)
 	solve(&stack_a, &stack_b);
 	print_stack(stack_a);
 	print_stack(stack_b);
-	final_rotate(&stack_a);
+	final_rotate(stack_a);
 	print_stack(stack_a);
-	print_stack(stack_b);
-	(void)stack_b;
 	return (1);
 }
 
@@ -71,26 +69,41 @@ t_stack	*find_lowest(t_stack *list)
 	return (ret);
 }
 
-void	final_rotate(t_stack **a)
+void	final_rotate(t_stack *a)
 {
-	t_stack	*low;
-	t_stack	*head;
+	t_stack	*tmp;
+	int	index;
+	int	num;
 	int		i;
+
 	i = -1;
-	head = (*a);
-	head->nbr = (*a)->nbr;
-	low = find_lowest(*a);
-	(*a)->nbr = head->nbr;
-	(*a) = head;
-	ft_index(*a);
-	if (low->index <= (ft_lstsize(*a) / 2))
+	tmp = a;
+	num = tmp->nbr;
+	ft_index(a);
+	while (tmp)
 	{
-		while (++i < low->index)
-			ft_ra(a);
+		print_stack(a);
+		if (num > tmp->nbr)
+		{
+			index = tmp->index;
+			num = tmp->nbr;
+		}
+		print_stack(a);
+		tmp = tmp->next;
+	}
+	if (index <= (ft_lstsize(a) / 2))
+	{
+		while (++i < index)
+			ft_ra(&a);
 	}
 	else
 	{
-		while (++i < (ft_lstsize(*a) - low->index))
-			ft_rra(a);
+		while (++i <= (ft_lstsize(a) - index))
+		{
+			ft_rra(&a);
+			print_stack(a);
+		}
+		print_stack(a);
 	}
+	return ;
 }

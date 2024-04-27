@@ -1,7 +1,0 @@
-{
-	"files.associations": {
-		"span": "c",
-		"type_traits": "c",
-		"algorithm": "c"
-	}
-}

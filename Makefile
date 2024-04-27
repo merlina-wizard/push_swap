@@ -8,12 +8,14 @@ CC			=	gcc
 
 RM			=	rm -f
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g
 
 $(NAME):	$(OBJ)
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 all:		$(NAME)
+
+re:			fclean all
 
 git:
 	git add .
