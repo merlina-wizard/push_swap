@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/27 19:36:48 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:15:42 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,15 @@ void			solve(t_stack **a, t_stack **b);
 int				check_if_sorted(t_stack *stack);
 void			sort_three(t_stack **a);
 void			print_stack(t_stack *stack);
-void			mini_sort(t_stack **a);
+void			mini_sort(t_stack **a, t_stack **b);
 t_stack			*target_a(t_stack *a, t_stack *b);
 t_stack			*find_target(t_stack *stacks, int target);
 int				find_cost(t_stack *a, int index_a, int index_b, t_stack *b);
 int				ft_case(t_stack *target_a, t_stack *target_b,
 					long max_a, long max_b);
-void			ft_move(t_stack **a, t_stack *target_a,
+void			ft_cases(t_stack **a, t_stack *target_a,
 					t_stack **b, t_stack *target_b);
-void			final_rotate(t_stack **a);
+int				lowest_num(t_stack **a);
+void			solve_five(t_stack **a, t_stack **b);
 
 #endif

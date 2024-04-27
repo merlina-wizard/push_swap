@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/27 23:36:30 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:15:24 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	solve(t_stack **a, t_stack **b)
 	if (check_if_sorted(*a))
 		return ;
 	if (ft_lstsize(*a) <= 3)
-		mini_sort(a);
+		mini_sort(a, b);
 	while (*a)
 	{
 		if (ft_lstsize(*b) <= 0)
@@ -32,10 +32,8 @@ void	solve(t_stack **a, t_stack **b)
 		ft_index(*b);
 		targeta = target_a(*a, *b);
 		targetb = find_target(*b, targeta->nbr);
-		ft_move(a, targeta, b, targetb);
+		ft_cases(a, targeta, b, targetb);
 		ft_pb(a, b);
-		print_stack(*a);
-		print_stack(*b);
 	}
 	while (*b)
 		ft_pa(a, b);
