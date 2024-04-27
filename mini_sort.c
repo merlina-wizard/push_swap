@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:09:09 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/28 00:20:53 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:50:38 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sort_three(t_stack **a)
 	return ;
 }
 
-void	solve_five2(t_stack **a,t_stack **b)
+void	solve_five2(t_stack **a, t_stack **b)
 {
 	while (*b)
 	{
