@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/27 18:40:08 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/27 23:36:30 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ void	solve(t_stack **a, t_stack **b)
 		targetb = find_target(*b, targeta->nbr);
 		ft_move(a, targeta, b, targetb);
 		ft_pb(a, b);
-		// if ((*b)->nbr > (*b)->next->nbr && (*b)->next)
-		// 	ft_sb(b);
 		print_stack(*a);
 		print_stack(*b);
 	}
@@ -56,6 +54,7 @@ t_stack	*target_a(t_stack *a, t_stack *b)
 	while (a)
 	{
 		target = find_target(b, a->nbr);
+		a->cases = ft_case(a, target, ft_lstsize(a), ft_lstsize(b));
 		cost = find_cost(a, a->index, target->index, b);
 		if (cost < tmp_cost)
 		{
