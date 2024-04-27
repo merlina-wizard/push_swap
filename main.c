@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/27 19:27:34 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:41:59 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 	solve(&stack_a, &stack_b);
 	print_stack(stack_a);
 	print_stack(stack_b);
-	final_rotate(stack_a);
+	final_rotate(&stack_a);
 	print_stack(stack_a);
 	return (1);
 }
@@ -69,7 +69,7 @@ t_stack	*find_lowest(t_stack *list)
 	return (ret);
 }
 
-void	final_rotate(t_stack *a)
+void	final_rotate(t_stack **a)
 {
 	t_stack	*tmp;
 	int	index;
@@ -77,33 +77,27 @@ void	final_rotate(t_stack *a)
 	int		i;
 
 	i = -1;
-	tmp = a;
+	tmp = (*a);
 	num = tmp->nbr;
-	ft_index(a);
+	ft_index(*a);
 	while (tmp)
 	{
-		print_stack(a);
 		if (num > tmp->nbr)
 		{
 			index = tmp->index;
 			num = tmp->nbr;
 		}
-		print_stack(a);
 		tmp = tmp->next;
 	}
-	if (index <= (ft_lstsize(a) / 2))
+	if (index <= (ft_lstsize(*a) / 2))
 	{
-		while (++i < index)
-			ft_ra(&a);
+		while (++i < (index - 1))
+			ft_ra(a);
 	}
 	else
 	{
-		while (++i <= (ft_lstsize(a) - index))
-		{
-			ft_rra(&a);
-			print_stack(a);
-		}
-		print_stack(a);
+		while (++i <= (ft_lstsize(*a) - index))
+			ft_rra(a);
 	}
 	return ;
 }

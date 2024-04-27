@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/27 19:08:59 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:36:48 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int				ft_case(t_stack *target_a, t_stack *target_b,
 					long max_a, long max_b);
 void			ft_move(t_stack **a, t_stack *target_a,
 					t_stack **b, t_stack *target_b);
-void			final_rotate(t_stack *a);
+void			final_rotate(t_stack **a);
 
 #endif
