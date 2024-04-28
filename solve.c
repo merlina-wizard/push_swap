@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/28 00:15:24 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/28 13:20:02 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	solve(t_stack **a, t_stack **b)
 	if (check_if_sorted(*a))
 		return ;
 	if (ft_lstsize(*a) <= 3)
+	{
 		mini_sort(a, b);
+		return ;
+	}
 	while (*a)
 	{
 		if (ft_lstsize(*b) <= 0)
