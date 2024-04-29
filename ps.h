@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/28 00:15:42 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:03:50 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack
 	long			index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	int				size;
 }	t_stack;
 
 char			**mat(int argc, char **argv);
@@ -62,11 +63,10 @@ int				check_if_sorted(t_stack *stack);
 void			sort_three(t_stack **a);
 void			print_stack(t_stack *stack);
 void			mini_sort(t_stack **a, t_stack **b);
-t_stack			*target_a(t_stack *a, t_stack *b);
+t_stack			*target_a(t_stack *a, t_stack *b, int size_a, int size_b);
 t_stack			*find_target(t_stack *stacks, int target);
-int				find_cost(t_stack *a, int index_a, int index_b, t_stack *b);
-int				ft_case(t_stack *target_a, t_stack *target_b,
-					long max_a, long max_b);
+int				find_cost(int max_a, int index_a, int index_b, int max_b);
+int				ft_case(int max_a, int index_a, int index_b, int max_b);
 void			ft_cases(t_stack **a, t_stack *target_a,
 					t_stack **b, t_stack *target_b);
 int				lowest_num(t_stack **a);
