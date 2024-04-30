@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/29 19:39:22 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/30 23:05:41 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	solve(t_stack **a, t_stack **b)
 		targeta = target_a(*a, *b, ft_lstsize(*a), ft_lstsize(*b));
 		targetb = find_target(*b, targeta->nbr);
 		printf("targeta: %ld", targeta->nbr);
+		printf("targeta cases: %d", targeta->cases);
 		printf(" targetb: %ld\n", targetb->nbr);
 		ft_cases(a, targeta, b, targetb);
 		ft_pb(a, b);
@@ -53,20 +54,22 @@ t_stack	*target_a(t_stack *a, t_stack *b, int size_a, int size_b)
 	int		tmp_cost;
 	int		cost;
 
-
 	tmp_cost = INT_MAX;
+	print_stack(a);
+	print_stack(b);
 	while (a)
 	{
 		target = find_target(b, a->nbr);
 		cost = find_cost(size_a, a->index, target->index, size_b);
 		if (cost < tmp_cost)
 		{
-			a->cases = ft_case(size_a, a->index, target->index, size_b);
-			tmp_cost = cost;
 			ret_a = a;
+			ret_a->cases = ft_case(size_a, a->index, target->index, size_b);
+			tmp_cost = cost;
 		}
 		a = a->next;
 	}
+	printf(" case in target_a: %d\n", ret_a->cases);
 	return (ret_a);
 }
 
@@ -107,19 +110,15 @@ int	find_cost(int max_a, int index_a, int index_b, int max_b)
 			i = index_b - 1;
 	}
 	else if (cas == 3)
-	{
 		i = (index_a) + (max_b - index_b);
-	}
 	else
-	{
 		i = (index_b) + (max_a - index_a);
-	}
 	return (i);
 }
 
 int	ft_case(int max_a, int index_a, int index_b, int max_b)
 {
-	 if (index_a > ((max_a + 1) / 2) && index_b > ((max_b + 1) / 2))
+	if (index_a > ((max_a + 1) / 2) && index_b > ((max_b + 1) / 2))
 		return (1);
 	else if (index_a <= ((max_a + 1) / 2) && index_b <= ((max_b + 1) / 2))
 		return (2);

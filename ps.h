@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/29 17:03:50 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/30 23:03:11 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ typedef struct s_stack
 	long			nbr;
 	long			index;
 	struct s_stack	*next;
-	struct s_stack	*prev;
-	int				size;
 }	t_stack;
 
 char			**mat(int argc, char **argv);

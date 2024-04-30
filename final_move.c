@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 13:35:05 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/29 19:17:51 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/30 23:33:20 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,29 @@ void	ft_case3(t_stack **a, t_stack *target_a, t_stack **b, t_stack *target_b)
 
 void	ft_case4(t_stack **a, t_stack *target_a, t_stack **b, t_stack *target_b)
 {
-	while ((*a)->nbr != target_a->nbr && (*b)->nbr != target_b->nbr)
+	while (((*a)->nbr != target_a->nbr) && ((*b)->nbr != target_b->nbr))
 	{
 		ft_rra(a);
 		ft_rb(b);
 	}
 	if ((*a)->nbr == target_a->nbr)
 	{
-		while (target_a->nbr != (*a)->nbr)
-			ft_rra(a);
+		while (target_b->nbr != (*b)->nbr)
+			ft_rb(b);
 	}
 	else
 	{
-		while (target_b->nbr != (*b)->nbr)
-			ft_rb(b);
+		while (target_a->nbr != (*a)->nbr)
+			ft_rra(a);
 	}
 }
 
 void	ft_cases(t_stack **a, t_stack *target_a, t_stack **b, t_stack *target_b)
 {
-	if (ft_case(ft_lstsize(*a), target_a->index, target_b->index, ft_lstsize(*b)) == 1)
+	int	cas;
+
+	cas = target_a->cases;
+	if (cas == 1)
 	{
 		while ((*a)->nbr != target_a->nbr && (*b)->nbr != target_b->nbr)
 			ft_rrr(a, b);
@@ -83,9 +86,9 @@ void	ft_cases(t_stack **a, t_stack *target_a, t_stack **b, t_stack *target_b)
 				ft_rra(a);
 		}
 	}
-	else if (ft_case(ft_lstsize(*a), target_a->index, target_b->index, ft_lstsize(*b)) == 2)
+	else if (cas == 2)
 		ft_case2(a, target_a, b, target_b);
-	else if (ft_case(ft_lstsize(*a), target_a->index, target_b->index, ft_lstsize(*b)) == 3)
+	else if (cas == 3)
 		ft_case3(a, target_a, b, target_b);
 	else
 		ft_case4(a, target_a, b, target_b);

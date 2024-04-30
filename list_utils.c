@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:45:10 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/17 10:10:51 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/30 23:04:31 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 	if (!*lst)
 		*lst = new;
 	else
-	{
-		new->prev = ft_lstlast(*lst);
 		ft_lstlast(*lst)->next = new;
-	}
 }
 
 t_stack	*ft_lstnew(int data)
@@ -55,7 +52,6 @@ t_stack	*ft_lstnew(int data)
 		return (NULL);
 	list->nbr = data;
 	list->next = 0;
-	list->prev = 0;
 	list->index = 0;
 	return (list);
 }

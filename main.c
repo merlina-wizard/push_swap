@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/29 19:31:15 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/04/30 23:33:35 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 	stack_init(&stack_a, matrix);
 	solve(&stack_a, &stack_b);
 	lowest_num(&stack_a);
-	print_stack(stack_a);
 	return (1);
 }
 
