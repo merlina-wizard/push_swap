@@ -6,23 +6,11 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:09:09 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/05/02 17:40:06 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/02 18:31:46 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
-
-int	check_if_sorted(t_stack *stack)
-{
-	while (stack->next)
-	{
-		if (stack->nbr < stack->next->nbr)
-			stack = stack->next;
-		else
-			return (0);
-	}
-	return (1);
-}
 
 void	mini_sort(t_stack **a, t_stack **b)
 {

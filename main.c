@@ -6,23 +6,11 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/05/02 17:41:53 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/02 18:30:19 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
-
-void print_stack(t_stack *stack)
-{
-    printf("Stack:\n");
-    while (stack){
-		// printf("prev:[%p]", (stack->prev));
-		// printf(" current:[%p]", (stack));
-		// printf(" next[%p]", (stack->next));
-		printf("\t%ld and \t%ld\n", (stack->nbr), (stack->index));
-		stack = stack->next;
-    }
-}
 
 int	main(int argc, char **argv)
 {
@@ -45,11 +33,8 @@ int	main(int argc, char **argv)
 		return (write(1, "Error\n", 6));
 	}
 	stack_init(&stack_a, matrix);
-	solve(&stack_a, &stack_b);
-	if (check_if_sorted(stack_a))
-		return (1);
-	else
-		lowest_num(&stack_a);
+	if (!check_if_sorted(stack_a))
+		resolution(&stack_a, &stack_b, matrix);
 	return (1);
 }
 
@@ -91,4 +76,15 @@ int	lowest_num(t_stack **a)
 	}
 	final_rotate(index, a);
 	return (num);
+}
+
+void	resolution(t_stack **a, t_stack **b, char **matrix)
+{
+	solve(a, b);
+	if (!check_if_sorted(*a))
+		lowest_num(a);
+	ft_close_matrix(matrix);
+	ft_close_stack(a);
+	ft_close_stack(b);
+	return ;
 }

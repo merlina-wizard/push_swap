@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:27:56 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/30 23:03:11 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/02 18:30:36 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ void			ft_cases(t_stack **a, t_stack *target_a,
 					t_stack **b, t_stack *target_b);
 int				lowest_num(t_stack **a);
 void			solve_five(t_stack **a, t_stack **b);
+void			resolution(t_stack **a, t_stack **b, char **matrix);
+void			ft_close_stack(t_stack **stack);
 
 #endif

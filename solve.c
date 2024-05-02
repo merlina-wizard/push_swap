@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/05/02 17:39:22 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/02 18:10:13 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,28 @@ void	solve(t_stack **a, t_stack **b)
 	t_stack	*targeta;
 	t_stack	*targetb;
 
-	if (check_if_sorted(*a))
-		return ;
 	if (ft_lstsize(*a) <= 5)
-	{
 		mini_sort(a, b);
-		return ;
-	}
-	while (*a)
+	else
 	{
-		if (ft_lstsize(*b) <= 0)
+		while (*a)
 		{
-			ft_pb(a, b);
+			if (ft_lstsize(*b) <= 0)
+			{
+				ft_pb(a, b);
+				ft_pb(a, b);
+			}
+			ft_index(*a);
+			ft_index(*b);
+			targeta = target_a(*a, *b, ft_lstsize(*a), ft_lstsize(*b));
+			targetb = find_target(*b, targeta->nbr);
+			ft_cases(a, targeta, b, targetb);
 			ft_pb(a, b);
 		}
-		ft_index(*a);
-		ft_index(*b);
-		targeta = target_a(*a, *b, ft_lstsize(*a), ft_lstsize(*b));
-		targetb = find_target(*b, targeta->nbr);
-		ft_cases(a, targeta, b, targetb);
-		ft_pb(a, b);
+		while (*b)
+			ft_pa(a, b);
 	}
-	while (*b)
-		ft_pa(a, b);
-	if (check_if_sorted(*a))
-		return ;
+	return ;
 }
 
 t_stack	*target_a(t_stack *a, t_stack *b, int size_a, int size_b)
