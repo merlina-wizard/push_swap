@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:09:26 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/05/02 18:30:19 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/02 20:20:02 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int	main(int argc, char **argv)
 		return (write(1, "Error\n", 6));
 	}
 	stack_init(&stack_a, matrix);
-	if (!check_if_sorted(stack_a))
-		resolution(&stack_a, &stack_b, matrix);
+	resolution(&stack_a, &stack_b, matrix);
 	return (1);
 }
 
@@ -80,7 +79,8 @@ int	lowest_num(t_stack **a)
 
 void	resolution(t_stack **a, t_stack **b, char **matrix)
 {
-	solve(a, b);
+	if (!check_if_sorted(*a))
+		solve(a, b);
 	if (!check_if_sorted(*a))
 		lowest_num(a);
 	ft_close_matrix(matrix);
