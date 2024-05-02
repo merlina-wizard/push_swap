@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:31:29 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/30 23:05:41 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:39:22 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	solve(t_stack **a, t_stack **b)
 
 	if (check_if_sorted(*a))
 		return ;
-	if (ft_lstsize(*a) <= 3)
+	if (ft_lstsize(*a) <= 5)
 	{
 		mini_sort(a, b);
 		return ;
@@ -35,9 +35,6 @@ void	solve(t_stack **a, t_stack **b)
 		ft_index(*b);
 		targeta = target_a(*a, *b, ft_lstsize(*a), ft_lstsize(*b));
 		targetb = find_target(*b, targeta->nbr);
-		printf("targeta: %ld", targeta->nbr);
-		printf("targeta cases: %d", targeta->cases);
-		printf(" targetb: %ld\n", targetb->nbr);
 		ft_cases(a, targeta, b, targetb);
 		ft_pb(a, b);
 	}
@@ -55,8 +52,6 @@ t_stack	*target_a(t_stack *a, t_stack *b, int size_a, int size_b)
 	int		cost;
 
 	tmp_cost = INT_MAX;
-	print_stack(a);
-	print_stack(b);
 	while (a)
 	{
 		target = find_target(b, a->nbr);
@@ -69,7 +64,6 @@ t_stack	*target_a(t_stack *a, t_stack *b, int size_a, int size_b)
 		}
 		a = a->next;
 	}
-	printf(" case in target_a: %d\n", ret_a->cases);
 	return (ret_a);
 }
 

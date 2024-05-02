@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:09:09 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/28 18:00:05 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:40:06 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,38 +61,64 @@ void	sort_three(t_stack **a)
 	return ;
 }
 
-void	solve_five2(t_stack **a, t_stack **b)
+int	find_lowest(t_stack *a)
 {
-	while (*b)
+	t_stack	*tmp;
+	int	num;
+
+	tmp = (a);
+	num = tmp->nbr;
+	while (tmp)
 	{
-		if ((*b)->index < (ft_lstsize(*b) / 2))
-			ft_rb(b);
-		else
-			ft_rrb(b);
-		ft_pa(a, b);
+		if (num > tmp->nbr)
+			num = tmp->nbr;
+		tmp = tmp->next;
 	}
+	return (num);
+}
+
+int	find_second_lowest(t_stack *stack, int lowest)
+{
+	t_stack	*tmp;
+	int		ret;
+
+	tmp = stack;
+	if (tmp->nbr != lowest)
+		ret = tmp->nbr;
+	else
+		ret = tmp->next->nbr;
+	while (tmp)
+	{
+		if (ret > tmp->nbr && tmp->nbr != lowest)
+			ret = tmp->nbr;
+		tmp = tmp->next;
+	}
+	return (ret);
 }
 
 void	solve_five(t_stack **a, t_stack **b)
 {
 	int	i;
-	int	min;
+	int	lowest;
+	int	second_lowest;
+	int	size;
 
 	i = 0;
-	min = 0;
-	while (i < 3)
+	size = ft_lstsize(*a);
+	lowest = find_lowest(*a);
+	second_lowest = find_second_lowest(*a, lowest);
+	while (i < size)
 	{
-		min = lowest_num(a);
-		while ((*a)->nbr != min)
-		{
-			if ((*a)->index < (ft_lstsize(*a) / 2))
-				ft_ra(a);
-			else
-				ft_rra(a);
-		}
-		ft_pb(a, b);
+		if ((*a)->nbr == lowest || (*a)->nbr == second_lowest)
+			ft_pb(a, b);
+		else
+			ft_ra(a);
 		i++;
 	}
-	mini_sort(a, b);
-	solve_five2(a, b);
+	if (!check_if_sorted(*a))
+		sort_three(a);
+	if (check_if_sorted(*b))
+		ft_sb(b);
+	ft_pa(a, b);
+	ft_pa(a, b);
 }
