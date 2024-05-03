@@ -61,11 +61,11 @@ int	validation(char **mat)
 	while (mat[i])
 	{
 		if (!isnum(mat[i]))
-			return (write(1, "non ci sono solo numeri\n", 24));
+			return (write(1, "only numbers allowed\n", 21));
 		i++;
 	}
 	if (!michael_buble(mat))
-		return (write(1, "ci sono duplicati\n", 18));
+		return (write(1, "not dublicates allowed\n", 23));
 	return (1);
 }
 

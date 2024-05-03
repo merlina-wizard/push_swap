@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:09:09 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/05/02 18:31:46 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:58:05 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	sort_three(t_stack **a)
 int	find_lowest(t_stack *a)
 {
 	t_stack	*tmp;
-	int	num;
+	int		num;
 
 	tmp = (a);
 	num = tmp->nbr;
