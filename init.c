@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:43:21 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/11 16:51:26 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:33:18 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	create(t_stack **list, char	*mat)
 
 	nbr = ft_atoi(mat);
 	if (nbr > INT_MAX || nbr < INT_MIN)
-		return (0);
+		return (write(1, "Error\n", 6));
 	if (!list)
 		ft_lstnew(nbr);
 	ft_lstadd_back(list, ft_lstnew(nbr));

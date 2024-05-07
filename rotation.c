@@ -6,7 +6,7 @@
 /*   By: mamerlin <mamerlin@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:57:54 by mamerlin          #+#    #+#             */
-/*   Updated: 2024/04/30 14:53:38 by mamerlin         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:52:10 by mamerlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	ft_rrr(t_stack **a, t_stack **b)
 	(*a) = ft_lstlast(*a);
 	(*a)->next = tmp;
 	pre->next = NULL;
-
 	pre = (*b);
 	while (pre->next->next)
 		pre = pre->next;
